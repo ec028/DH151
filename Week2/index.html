@@ -53,7 +53,7 @@
 		'lon': 14.38862788276644,
 		}
 	]
-		var map = L.map('map').setView();
+		var map = L.map('map').setView([53.34401767044433, -6.256528282655274], 17);
 
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -61,16 +61,14 @@
 
 		// loop through data
 		books.forEach(function(item){
-		console.log(item)
+			var marker = L.marker(item.lat, item.lon]).addTo(map)
+			.bindPopup(item.title)
+			.openPopup();
+		
 		});
 
-		var marker = L.marker([53.34401767044433, -6.256528282655274]).addTo(map)
-			.bindPopup('Trinity College Library in Dublin, Ireland')
-			.openPopup();	
+			
 		
-		var marker = L.marker([51.754278867517435,-1.253999086476985,]).addTo(map)
-			.bindPopup('Bodelian Library in Oxford, United Kingdom')
-			.openPopup();	
 
 	</script>
 
