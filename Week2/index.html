@@ -53,14 +53,14 @@
 		'lon': 14.38862788276644,
 		}
 	]
-		var map = L.map('map').setView([53.34401767044433, -6.256528282655274,], 17);
+		var map = L.map('map').setView([53.34401767044433, -6.256528282655274], 17);
 
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
-		var marker = L.marker([34.0697,-118.4432]).addTo(map)
-				.bindPopup('The Technology Sandbox<br> Where Yoh is sitting this very moment')
+		var marker = L.marker([53.34401767044433, -6.256528282655274]).addTo(map)
+				.bindPopup('Trinity College Library in Dublin, Ireland')
 				.openPopup();	
 
 	</script>
