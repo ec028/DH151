@@ -53,16 +53,11 @@
 		'lon': 14.38862788276644,
 		}
 	]
-		var map = L.map('map').setView([53.34401767044433, -6.256528282655274], 17);
+		var data = L.map('map').setView([53.34401767044433, -6.256528282655274], 17);
 
 		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
-
-		// loop through cities
-		cities.forEach(function(item){
-		console.log(item)
-		});
 
 		// loop through data
 		data.forEach(function(item){
