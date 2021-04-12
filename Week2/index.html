@@ -53,23 +53,23 @@
 		'lon': 14.38862788276644,
 		}
 	]
-		var map = L.map('map').setView([53.34401767044433, -6.256528282655274], 17);
+	
+	var map = L.map('map').setView([53.34401767044433, -6.256528282655274], 17);
 
-		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-		}).addTo(map);
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
 
 		
-		var marker = L.marker([53.34401767044433, -6.256528282655274]).addTo(map)
-			.bindPopup('Trinity College Library in Dublin, Ireland')
-			.openPopup();	
+	var marker = L.marker([53.34401767044433, -6.256528282655274]).addTo(map)
+		.bindPopup('Trinity College Library in Dublin, Ireland')
+		.openPopup();	
 
-		// loop through data
-		books.forEach(function(item){
-			var marker = L.marker([item.lat, item.lon]).addTo(map)
-			.bindPopup('Trinity College Library in Dublin, Ireland')
-			.openPopup();	
-		
+	// loop through data
+	books.forEach(function(item){
+		var marker = L.marker([item.lat, item.lon]).addTo(map)
+		.bindPopup('Trinity College Library in Dublin, Ireland')
+		.openPopup();	
 		});
 
 		
