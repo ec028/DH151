@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hello World</title>
+	<title>Bucket List</title>
 	<meta charset="utf-8" />
 
 	<!-- style sheets -->
@@ -15,10 +15,10 @@
 <body>
 
 	<div class="header">
-		My World
+		Bucket List of Libraries Around the World
 	</div>
 	<div class="sidebar">
-		My Sidebar
+		Since I haven't really traveled in my life, these are a few libraries around the world I wish to eventually visit.
 	</div>
 	<div class="content">
 		<div id="map"></div>
@@ -59,9 +59,14 @@
 			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 		}).addTo(map);
 
-		var marker = L.marker([53.34401767044433, -6.256528282655274]).addTo(map)
-				.bindPopup('Trinity College Library in Dublin, Ireland')
-				.openPopup();	
+		// loop through data
+		data.forEach(function(item){
+		console.log(item)
+		});
+
+		//var marker = L.marker([53.34401767044433, -6.256528282655274]).addTo(map)
+				//.bindPopup('Trinity College Library in Dublin, Ireland')
+				//.openPopup();	
 
 	</script>
 
