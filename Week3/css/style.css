@@ -34,12 +34,13 @@ body {
 
 .sidebar-item {
     padding: 10px; /* adds inner padding */
+	border-radius: 20px;
     background: rgb(114, 189, 223); /* background color of the card */
     border: 1px solid rgb(0, 0, 0); /* border width and color */
     margin: 5px; /* outer padding */
 	color: white;
 	cursor: pointer; /* change cursor to hand on hover */
-	border-radius: 20px;
+	
 }
 
 .content {
