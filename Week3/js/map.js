@@ -50,5 +50,5 @@ books.forEach(function(item){
 
 // function to fly to a location by a given id number
 function flyToIndex(index){
-	map.flyTo([data[index].lat,data[index].lon],12)
+	map.flyTo([books[index].lat,books[index].lon],12)
 }
