@@ -45,6 +45,6 @@ books.forEach(function(item){
 		.bindPopup(item.title)
 
 	// add data to sidebar
-	$('.sidebar').append('<div class="sidebar-item">'+item.title+'</div>')
+	$('.sidebar').append(`<div class="sidebar-item">${item.title}</div>`)
 })
 
