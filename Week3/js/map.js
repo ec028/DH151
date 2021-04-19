@@ -38,41 +38,43 @@ let books = [
 	}).addTo(map);
 
 
-// before looping the data, create an empty FeatureGroup (layer on map)
-let myMarkers = L.featureGroup();
+	// before looping the data, create an empty FeatureGroup (layer on map)
+	let myMarkers = L.featureGroup();
 
-// loop through data
-books.forEach(function(item){
-	// create marker
-	let marker = L.marker([item.lat,item.lon]).bindPopup(item.title)
+	// loop through data
+	books.forEach(function(item,index){
+
+	let marker = L.marker([item.lat,item.lon])
+		.bindPopup(item.title)
 
 	// add marker to featuregroup
 	myMarkers.addLayer(marker)
 
 	// add data to sidebar with onclick event
-	$('.sidebar').append(`<div class="sidebar-item" onclick="flyByID(${item.id})">${item.title}</div>`)
-})
+	$('.sidebar').append(`<div class="sidebar-item" 
+	onclick="flyByIndex(${index})">${item.title}</div>`)
+	
+	});
 
-// after loop, add the FeatureGroup to map
-myMarkers.addTo(map)
+	// after loop, add the FeatureGroup to map
+	myMarkers.addTo(map)
 
-// define layers
-let layers = {
-	"My Markers": myMarkers
-}
+	// define layers
+	let layers = {
+		"My Markers": myMarkers
+	}
 
-// add layer control box
-L.control.layers(null,layers).addTo(map)
+	// add layer control box
+	L.control.layers(null,layers).addTo(map)
 
-// function to fly to a location by a given id number
-function flyByIndex(index){
-	map.flyTo([books[index].lat,books[index].lon],12)
 
+	map.fitBounds(myMarkers.getBounds());
+
+	// function to fly to a location by a given id number
+	function flyByIndex(index){
+		map.flyTo([books[index].lat,books[index].lon],12)
 	// open the popup
 	myMarkers.getLayers()[index].openPopup()
 }
 
-// function to fly to a location by a given id number
-function flyToIndex(index){
-	map.flyTo([books[index].lat,books[index].lon],12)
-}
+
