@@ -48,9 +48,3 @@ books.forEach(function(item){
 	$('.sidebar').append('<div class="sidebar-item">'+item.title+'</div>')
 })
 
-	// loop through books to establish each point
-	//books.forEach(function(item){
-		//var marker = L.marker([item.lat, item.lon]).addTo(map)
-		//.bindPopup(item.title + ":" +item.description)
-		//.openPopup();	
-		//});
