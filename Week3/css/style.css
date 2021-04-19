@@ -39,7 +39,7 @@ body {
     margin: 5px; /* outer padding */
 	color: white;
 	cursor: pointer; /* change cursor to hand on hover */
-	border-radius: 25px;
+	border-radius: 20px;
 }
 
 .content {
