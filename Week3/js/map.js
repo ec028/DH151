@@ -37,11 +37,6 @@ let books = [
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
 
-	//initial marker	
-	var marker = L.marker([53.34401767044433, -6.256528282655274]).addTo(map)
-		.bindPopup('Trinity College Library in Dublin, Ireland')
-		.openPopup();	
-
 	// loop through books to establish each point
 	books.forEach(function(item){
 		var marker = L.marker([item.lat, item.lon]).addTo(map)
