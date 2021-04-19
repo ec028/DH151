@@ -45,7 +45,7 @@ let books = [
 	books.forEach(function(item,index){
 
 	let marker = L.marker([item.lat,item.lon])
-		.bindPopup(item.title)
+		.bindPopup(item.title + ": " +item.description)
 
 	// add marker to featuregroup
 	myMarkers.addLayer(marker)
