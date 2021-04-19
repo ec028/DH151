@@ -37,9 +37,20 @@ let books = [
 		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
 
+
+/// loop through data
+books.forEach(function(item){
+	// add marker to map
+	let marker = L.marker([item.lat,item.lon]).addTo(map)
+		.bindPopup(item.title)
+
+	// add data to sidebar
+	$('.sidebar').append('<div class="sidebar-item">'+item.title+'</div>')
+})
+
 	// loop through books to establish each point
-	books.forEach(function(item){
-		var marker = L.marker([item.lat, item.lon]).addTo(map)
-		.bindPopup(item.title + ":" +item.description)
-		.openPopup();	
-		});
+	//books.forEach(function(item){
+		//var marker = L.marker([item.lat, item.lon]).addTo(map)
+		//.bindPopup(item.title + ":" +item.description)
+		//.openPopup();	
+		//});
