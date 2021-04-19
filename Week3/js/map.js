@@ -38,13 +38,17 @@ let books = [
 	}).addTo(map);
 
 
-/// loop through data
+// loop through data
 books.forEach(function(item){
 	// add marker to map
-	let marker = L.marker([item.lat,item.lon]).addTo(map)
+	L.marker([item.lat,item.lon]).addTo(map)
 		.bindPopup(item.title)
 
 	// add data to sidebar
-	$('.sidebar').append(`<div class="sidebar-item">${item.title}</div>`)
+	$('.sidebar').append(`<div class="sidebar-item" onclick="alert('you clicked me!')">${item.title}</div>`)
 })
 
+// function to fly to a location by a given id number
+function flyToIndex(index){
+	map.flyTo([data[index].lat,data[index].lon],12)
+}

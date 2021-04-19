@@ -36,6 +36,7 @@ body {
     background: gainsboro; /* background color */
     border: 1px solid gray; /* border width, style, and color */
     margin: 5px; /* outer padding */
+	color:blue;
 }
 
 .content {
