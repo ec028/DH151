@@ -38,15 +38,39 @@ let books = [
 	}).addTo(map);
 
 
+// before looping the data, create an empty FeatureGroup (layer on map)
+let myMarkers = L.featureGroup();
+
 // loop through data
 books.forEach(function(item){
-	// add marker to map
-	L.marker([item.lat,item.lon]).addTo(map)
-		.bindPopup(item.title)
+	// create marker
+	let marker = L.marker([item.lat,item.lon]).bindPopup(item.title)
 
-	// add data to sidebar
-	$('.sidebar').append(`<div class="sidebar-item" onclick="alert('you clicked me!')">${item.title}</div>`)
+	// add marker to featuregroup
+	myMarkers.addLayer(marker)
+
+	// add data to sidebar with onclick event
+	$('.sidebar').append(`<div class="sidebar-item" onclick="flyByID(${item.id})">${item.title}</div>`)
 })
+
+// after loop, add the FeatureGroup to map
+myMarkers.addTo(map)
+
+// define layers
+let layers = {
+	"My Markers": myMarkers
+}
+
+// add layer control box
+L.control.layers(null,layers).addTo(map)
+
+// function to fly to a location by a given id number
+function flyByIndex(index){
+	map.flyTo([books[index].lat,books[index].lon],12)
+
+	// open the popup
+	myMarkers.getLayers()[index].openPopup()
+}
 
 // function to fly to a location by a given id number
 function flyToIndex(index){
