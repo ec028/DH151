@@ -66,8 +66,6 @@ let books = [
 
 	// add layer control box
 	L.control.layers(null,layers).addTo(map)
-
-
 	map.fitBounds(myMarkers.getBounds());
 
 	// function to fly to a location by a given id number
