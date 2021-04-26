@@ -50,33 +50,35 @@ function mapCSV(data){
 	// loop through each entry
 	data.data.forEach(function(item,index){
 		// create a marker
-		let marker = L.circleMarker([item.latitude,item.longitude],circleOptions)
-		.on('mouseover',function(){
-			this.bindPopup(`${item.City}<br>,${item.Country}`).openPopup()
-		})
+		let marker = L.circleMarker([item.latitude,item.longitude], circleOptions)
+		.on('mouseover',
+			function(){
+				this.bindPopup(`${item.City},${item.Country}`).openPopup();
+		}
+	);
 	
-		// add marker to featuregroup
-		markers.addLayer(marker)
+	// add marker to featuregroup
+	markers.addLayer(marker)
 
-		// add entry to sidebar
-		$(".sidebar").append(
-			`<div class="sidebar-item" onmouseover="panToImage(${index})">
-			<p>${item.City},${item.Country}</p>
-			</div>`
-	)
-})
+	// add entry to sidebar
+	$(".sidebar").append(
+		`<div class="sidebar-item" onmouseover="panToImage(${index})">
+		<p>${item.City},${item.Country}</p>
+		</div>`
+		);
+	});
 	
-// add featuregroup to map
-markers.addTo(map)
-// fit map to markers
-map.fitBounds(markers.getBounds())
+	// add featuregroup to map
+	markers.addTo(map)
+
+	// fit map to markers
+	map.fitBounds(markers.getBounds());
 
 }
 
 function panToImage(index){
-	// zoom to level 17 first
-	map.setZoom(17);
+	// zoom
+	map.setZoom(10);
 	// pan to the marker
 	map.panTo(markers.getLayers()[index]._latlng);
-	}
-}
+}}
