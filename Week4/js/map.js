@@ -49,8 +49,53 @@ function readCSV(path){
 	
 		// add featuregroup to map
 		markers.addTo(map)
-	
 		// fit markers to map
 		map.fitBounds(markers.getBounds())
+
+		// loop through data
+		data.forEach(function(item,index){
+
+			let marker = L.marker([item.lat,item.lon])
+				.bindPopup(item.City + ": " +item.Country)
+	
+			// add marker to featuregroup
+			myMarkers.addLayer(marker)
+})
 	}
+
+	function mapCSV(data){
+
+		// circle options
+		let circleOptions = {
+			radius: 5,
+			weight: 1,
+			color: 'white',
+			fillColor: 'dodgerblue',
+			fillOpacity: 1
+		}
+		// loop through each entry
+		data.data.forEach(function(item,index){
+			// create a marker
+			let marker = L.circleMarker([item.latitude,item.longitude],circleOptions)
+			.on('mouseover',function(){
+				this.bindPopup(`${item.City},<br>${item.Country}`).openPopup()
+			})
+
+			// add marker to featuregroup
+			markers.addLayer(marker)
+
+			// add data to sidebar with onclick event
+			$('.sidebar').append(`<div class="sidebar-item" 
+			onclick="flyByIndex(${index})">${item.City}, ${item.Country}</div>`)
+
+
+		})
+		
+		// add featuregroup to map
+		markers.addTo(map)
+		// fit map to markers
+		map.fitBounds(markers.getBounds())
+
+		
+}
 }

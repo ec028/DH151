@@ -1,4 +1,4 @@
-FID,the_geom,City_Name,latitude,longitude,Country_Na
+FID,the_geom,City,latitude,longitude,Country
 City_UNESCO_Category0.1,POINT (116.4030813 39.91599707),Beijing,39.91599707,116.4030813,China
 City_UNESCO_Category0.2,POINT (-74.07781232 4.617037994),Bogota,4.61703799,-74.07781232,Colombia
 City_UNESCO_Category0.3,POINT (-58.3917782 -34.59085399),Buenos Aires,-34.59085399,-58.3917782,Argentina
