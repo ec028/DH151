@@ -60,7 +60,7 @@ function mapCSV(data){
 	markers.addLayer(marker)
 
 	// add entry to sidebar
-	$(".sidebar").append(`<div class="sidebar-item" onmouseover="map.panTo(${index})">
+		$(".sidebar").append(`<div class="sidebar-item" onmouseover="map.panTo(${index})">
 		<p>${item.City},${item.Country}</p>
 		</div>`
 		);
