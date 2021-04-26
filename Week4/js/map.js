@@ -43,26 +43,24 @@ function mapCSV(data){
 		radius: 5,
 		weight: 1,
 		color: 'white',
-		fillColor: 'dodgerblue',
+		fillColor: 'blue',
 		fillOpacity: 1
-		}
+	}
 	
-	// loop through each entry
-	data.data.forEach(function(item,index){
+		// loop through each entry
+		data.data.forEach(function(item,index){
+		
 		// create a marker
 		let marker = L.circleMarker([item.latitude,item.longitude], circleOptions)
-		.on('mouseover',
-			function(){
-				this.bindPopup(`${item.City},${item.Country}`).openPopup();
-		}
-	);
+		.on('mouseover',function(){
+				this.bindPopup(`${item.City},${item.Country}`).openPopup()
+		})
 	
 	// add marker to featuregroup
 	markers.addLayer(marker)
 
 	// add entry to sidebar
-	$(".sidebar").append(
-		`<div class="sidebar-item" onmouseover="panToImage(${index})">
+	$(".sidebar").append(`<div class="sidebar-item" onmouseover="map.panTo(${index})">
 		<p>${item.City},${item.Country}</p>
 		</div>`
 		);
